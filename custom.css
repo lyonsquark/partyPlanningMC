@@ -1,3 +1,4 @@
+<link href='http://fonts.googleapis.com/css?family=Fenix' rel='stylesheet' type='text/css'>
 <style>
     .container { width:100% !important; }
     @font-face {
@@ -12,6 +13,15 @@
    .cm-string {
        font-variant-ligatures: none;
     }
+ 
+    h2 {
+      font-family: 'Fenix', serif;
+    }
+
+    .input_area {
+      font-family: 'Fira Code';
+      font-variant-ligatures: initial;
+   }
 </style>
 <script>
     MathJax.Hub.Config({
