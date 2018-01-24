@@ -11880,6 +11880,25 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A note about the <code>@&gt;</code> syntax you'll see below as it will likely look unfamiliar. The <a href="https://github.com/MikeInnes/Lazy.jl">Lazy.jl</a> package has the <code>@&gt;</code> and <code>@&gt;&gt;</code> (and other) macros to create a pipeline of commands. <code>@&gt;</code> threads the result of a function into the first argument position of the next function on the line. <code>@&gt;&gt;</code> threads the result of a function into the <em>last</em> argument position of the next function (needed rarely). For example,</p>
+<div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">(</span> <span class="nd">@select</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">:</span><span class="n">nA</span> <span class="p">)</span> <span class="p">)</span>  <span class="c"># Take the mean of the :nA column of the data frame x</span>
+<span class="err">@</span><span class="o">&gt;</span> <span class="n">x</span> <span class="nd">@select</span><span class="p">(</span><span class="o">:</span><span class="n">nA</span><span class="p">)</span> <span class="n">mean</span>    <span class="c"># This line does the same as above</span>
+
+<span class="n">ndupl</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span> <span class="n">nonunique</span><span class="p">(</span> <span class="nd">@select</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">:</span><span class="n">nA</span><span class="p">,</span> <span class="o">:</span><span class="n">nT</span><span class="p">,</span> <span class="o">:</span><span class="n">nC</span><span class="p">,</span> <span class="o">:</span><span class="n">nM</span><span class="p">,</span> <span class="o">:</span><span class="n">nW</span><span class="p">,</span> <span class="o">:</span><span class="n">nSA</span><span class="p">,</span> <span class="o">:</span><span class="n">nSK</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">ndupl</span> <span class="o">=</span> <span class="err">@</span><span class="o">&gt;</span> <span class="n">x</span> <span class="nd">@select</span><span class="p">(</span><span class="o">:</span><span class="n">nA</span><span class="p">,</span> <span class="o">:</span><span class="n">nT</span><span class="p">,</span> <span class="o">:</span><span class="n">nC</span><span class="p">,</span> <span class="o">:</span><span class="n">nM</span><span class="p">,</span> <span class="o">:</span><span class="n">nW</span><span class="p">,</span> <span class="o">:</span><span class="n">nSA</span><span class="p">,</span> <span class="o">:</span><span class="n">nSK</span><span class="p">)</span> <span class="n">nonunique</span> <span class="n">sum</span><span class="p">()</span>  <span class="c"># Same as line above</span>
+
+<span class="n">printfmtln</span><span class="p">(</span><span class="s">&quot;{1:.2f}%&quot;</span><span class="p">,</span> <span class="n">ndupl</span><span class="o">/</span><span class="n">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="p">)</span>
+<span class="err">@</span><span class="o">&gt;&gt;</span> <span class="n">ndupl</span><span class="o">/</span><span class="n">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="n">printfmtln</span><span class="p">(</span><span class="s">&quot;{1:.2f}%&quot;</span><span class="p">)</span>  <span class="c"># Same as line above</span>
+</pre></div>
+<p>I find the threading macros make complex expressions easier to read as you can follow the flow from left to right instead of from inner parentheses to outer.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
