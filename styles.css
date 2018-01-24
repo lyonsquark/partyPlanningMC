@@ -1,0 +1,30 @@
+<style>
+    .container { width:100% !important; }
+    @font-face {
+       font-family: 'Fira Code';
+               src: url("https://cdn.rawgit.com/dunovank/jupyter-themes/1e851888/jupyterthemes/fonts/monospace/firacode/firacode.otf") format("opentype");
+    }
+   .CodeMirror {
+      font-family: 'Fira Code';
+      font-variant-ligatures: initial;
+    }
+
+   .cm-string {
+       font-variant-ligatures: none;
+    }
+</style>
+<script>
+    MathJax.Hub.Config({
+            TeX: {
+                extensions: ["AMSmath.js"]
+                           },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                },
+                displayAlign: 'center', // Change this to 'center' to center equations.
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 4}}
+                }
+        });
+</script>
