@@ -13,7 +13,7 @@
        font-variant-ligatures: none;
     }
  
-    .input_area pre {
+    .input_area pre, .highlight pre {
       font-family: 'Fira Code';
       font-variant-ligatures: initial;
    }
